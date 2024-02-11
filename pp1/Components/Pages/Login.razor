@@ -1,0 +1,185 @@
+﻿@page "/login"
+@using System.Text.Json
+@using System.Text
+@using System.Text.Json.Nodes
+@using System.Net.Http.Json
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedSessionStorage ProtectedSessionStorage
+@inject HttpClient client
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Login/Register</PageTitle>
+
+<div class="flex flex-row w-full">
+    <h2>@UserName</h2>
+        <div class="flex flex-col lg:w-full items-center justify-center mx-auto md:h-screen lg:py-0">
+          <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                Login
+              </h1>
+              <EditForm Model="@loginData" OnSubmit="HandleLogin" class="space-y-4 md:space-y-6" FormName="loginForm" >
+
+                <div>
+                  <label for="login-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username/Email</label>
+                  <InputText type="email" @bind-Value="@loginData.login" id="login-email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username/name@company.com" required=""/>
+                </div>
+                <div>
+                  <label for="login-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                  <InputText type="password" @bind-Value="@loginData.password" id="login-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
+                </div>
+                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+              
+            </EditForm>
+            </div>
+          </div>
+        </div>
+
+        @* Here starts the Registartion cshtml*@
+
+        <div class="flex flex-col lg:w-full items-center justify-center mx-auto md:h-screen lg:py-0">
+          <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                Create an account
+              </h1>
+              <EditForm Model="@registerdata" OnSubmit="HandleRegister" FormName="registerForm" class="space-y-4 md:space-y-6" action="#">
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                    <InputText @bind-Value="@registerdata.username" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="my_username" required=""></InputText>
+                </div>
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <InputText @bind-Value="@registerdata.email" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""></InputText>
+                </div>
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                      <InputText @bind-Value="@registerdata.password" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></InputText>
+                  </div>
+                  <div>
+                      <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                      <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  </div>
+                  <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                        <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required="">
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-blue-600 hover:underline dark:text-blue-500" href="#">Terms and Conditions</a></label>
+                      </div>
+                  </div>
+                  <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an account</button>
+              </EditForm>
+
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+
+@code{
+
+    private string UserName = "-1";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        if (firstRender)
+        {
+            UserName = (await ProtectedSessionStorage.GetAsync<string>("token")).Value ?? "-1";
+            StateHasChanged();
+            if(UserName != "-1")
+            {
+                UserName = "Already registered";
+            }
+        }
+    }
+
+    public class LoginData {
+        public string login { get; set; }
+        public string password { get; set; }
+    }
+
+    public LoginData loginData = new();
+
+    private async Task HandleLogin(EditContext context) {
+        Console.WriteLine("Login start");
+
+        LoginData current_data = (LoginData)context.Model;
+        Console.WriteLine($"password is {current_data.password}");
+
+        string json_data = JsonSerializer.Serialize(current_data);
+        string address = "https://foru.ms/api/v1/auth/login";
+        Console.WriteLine(json_data);
+        var requestMessage = new HttpRequestMessage(HttpMethod.Post, address);
+        requestMessage.Content = new StringContent(json_data, Encoding.UTF8, "application/json");
+        requestMessage.Headers.Add("Accept", "application/json");
+        requestMessage.Headers.Add("Authorization", "Bearer 123");
+        requestMessage.Headers.Add("x-api-key", "ea68f51c-4071-46db-a3ba-5c0156ef9751");
+
+        var response = await client.SendAsync(requestMessage);
+        if (response.IsSuccessStatusCode)
+        {
+            string body = await response.Content.ReadAsStringAsync();
+            JsonNode node = JsonNode.Parse(body);
+            Console.WriteLine($"Token is {node["token"]}");
+        }
+        else
+        {
+            Console.WriteLine("Something bad happened");
+            string bd = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(bd);
+        }
+    }
+
+    public class RegisterData {
+        public string username { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string displayName { get; set; }
+        public bool emailVerified { get; set; }
+    }
+
+    public RegisterData registerdata = new();
+
+    private async Task HandleRegister(EditContext context) {
+        Console.WriteLine($"User Name is {((RegisterData)context.Model).username}");
+        RegisterData current_user = (RegisterData)context.Model;
+        current_user.displayName = current_user.username.Split('@')[0];
+        current_user.emailVerified = true;
+
+        Console.WriteLine($"display name is {current_user.displayName}");
+        string json_data = JsonSerializer.Serialize(current_user);
+
+        Console.WriteLine(json_data);
+
+        string api_url = "https://foru.ms/api/v1/auth/register";
+        var requestMessage = new HttpRequestMessage(HttpMethod.Post, api_url);
+        requestMessage.Content = new StringContent(json_data, Encoding.UTF8, "application/json");
+        requestMessage.Headers.Add("Accept", "application/json");
+        requestMessage.Headers.Add("Authorization", "Bearer 123");
+        requestMessage.Headers.Add("x-api-key", "ea68f51c-4071-46db-a3ba-5c0156ef9751");
+
+        var response = await client.SendAsync(requestMessage);
+
+
+        if (response.IsSuccessStatusCode)
+        {
+            Console.WriteLine("User is registered");
+            string bd = await response.Content.ReadAsStringAsync();
+            JsonNode node = JsonNode.Parse(bd);
+            await ProtectedSessionStorage.SetAsync("token", "hehe fine");
+            Console.WriteLine(node["id"]);
+
+        }
+        else
+        {
+            Console.WriteLine("Something wrong happened");
+        
+        }
+
+    }
+}

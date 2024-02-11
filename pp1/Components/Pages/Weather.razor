@@ -1,0 +1,27 @@
+﻿@page "/submit-form"
+@rendermode InteractiveServer
+
+<h1>Submit Form</h1>
+
+<EditForm Model="@formData" OnSubmit="subhand" formname="loginForm">
+ 
+    <InputText id="Password" @bind-Value="@formData.Password"></InputText>
+    <InputText id="Email" @bind-Value="@formData.Email"></InputText>
+
+    <button type="submit">Submit Bro</button>
+</EditForm>
+
+@code {
+    public class FormModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
+    FormModel formData = new();
+
+    public void subhand(EditContext context)
+    {
+        Console.WriteLine($"Email is {((FormModel)context.Model).Email}");
+    }
+}

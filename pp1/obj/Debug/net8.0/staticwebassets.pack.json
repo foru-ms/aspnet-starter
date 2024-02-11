@@ -1,0 +1,121 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorProject.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BlazorProject.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-1.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-1.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-2.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-2.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-3.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-3.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-4.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-4.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-5.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-5.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-6.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-6.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-7.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-7.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\enrolled-student-8.png",
+      "PackagePath": "staticwebassets\\images\\enrolled-student-8.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-1.png",
+      "PackagePath": "staticwebassets\\images\\instructor-1.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-2.png",
+      "PackagePath": "staticwebassets\\images\\instructor-2.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-3.png",
+      "PackagePath": "staticwebassets\\images\\instructor-3.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-4.png",
+      "PackagePath": "staticwebassets\\images\\instructor-4.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-5.png",
+      "PackagePath": "staticwebassets\\images\\instructor-5.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-6.png",
+      "PackagePath": "staticwebassets\\images\\instructor-6.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-7.png",
+      "PackagePath": "staticwebassets\\images\\instructor-7.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\instructor-8.png",
+      "PackagePath": "staticwebassets\\images\\instructor-8.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\uni.png",
+      "PackagePath": "staticwebassets\\images\\uni.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\images\\videos-1.png",
+      "PackagePath": "staticwebassets\\images\\videos-1.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\BlazorProject\\BlazorProject\\wwwroot\\scripts\\script.js",
+      "PackagePath": "staticwebassets\\scripts\\script.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorProject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorProject.props",
+      "PackagePath": "build\\BlazorProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorProject.props",
+      "PackagePath": "buildMultiTargeting\\BlazorProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorProject.props",
+      "PackagePath": "buildTransitive\\BlazorProject.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
